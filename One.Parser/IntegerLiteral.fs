@@ -62,5 +62,5 @@ module One.Parser.IntegerLiteral
             .Repeat(1)
             .Select(fun zero -> zero.[0].ToString())
     
-    let integerParser =
+    let integerLiteralParser =
         notZeroIntegerParser.Try().Or(zeroIntegerParser)

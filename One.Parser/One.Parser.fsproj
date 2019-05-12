@@ -5,6 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="BooleanLiteral.fs" />
         <Compile Include="IntegerLiteral.fs" />
     </ItemGroup>
 

@@ -185,12 +185,13 @@ let ``zeroIntegerParser rejects all literals except zero`` (item : string) =
 [<Theory>]
 [<MemberData("validIntegerLiterals")>]
 let ``integerParser accepts all valid literals`` (item : string) =
-    integerParser.IsMatch(new TextSpan(item)) |> should be True
+    integerLiteralParser.IsMatch(new TextSpan(item)) |> should be True
 
 [<Theory>]
 [<MemberData("validIntegerLiterals")>]
 let ``integerParser produces expected results`` (item : string) =
-    integerParser.Parse (item) |> should equal (item.Replace("_", ""))
+    integerLiteralParser.Parse (item) |> should equal (item.Replace("_", ""))
 
+[<Fact>]
 let ``integerParser rejects minus zero`` () =
     zeroIntegerParser.IsMatch(new TextSpan("-0")) |> should be False
