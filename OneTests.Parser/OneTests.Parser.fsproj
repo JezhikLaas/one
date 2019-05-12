@@ -9,6 +9,7 @@
 
     <ItemGroup>
         <Compile Include="BooleanLiteral.Tests.fs" />
+        <Compile Include="FloatingPointLiteral.Tests.fs" />
         <Compile Include="IntegerLiteral.Tests.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>

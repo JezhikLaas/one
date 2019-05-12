@@ -1,4 +1,4 @@
-module public IntegerLiteral.Tests
+module IntegerLiteral.Tests
 
 open System
 open FsUnit

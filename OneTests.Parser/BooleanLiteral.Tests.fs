@@ -1,4 +1,4 @@
-module OneTests.Parser.BooleanLiteral_Tests
+module BooleanLiteral.Tests
 
 open System
 open FsUnit
