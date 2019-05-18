@@ -1,6 +1,5 @@
 module One.Parser.BooleanLiteral
 
-    open System
     open Superpower
     open Superpower.Parsers
     

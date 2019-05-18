@@ -8,6 +8,7 @@
         <Compile Include="BooleanLiteral.fs" />
         <Compile Include="IntegerLiteral.fs" />
         <Compile Include="FloatingPointLiteral.fs" />
+        <Compile Include="StringLiteral.fs" />
     </ItemGroup>
 
     <ItemGroup>
