@@ -7,3 +7,8 @@ module One.Parser.Identifier
         Character.Lower
             .Then(fun head -> Character.LetterOrDigit.Many())
             .Select(fun tail -> new string(tail))
+    
+    let upperCaseIdentifierParser =
+        Character.Upper
+            .Then(fun head -> Character.LetterOrDigit.Many())
+            .Select(fun tail -> new string(tail))
