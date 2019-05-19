@@ -1,11 +1,12 @@
 namespace One.Parser
 
     type OneToken =
-        StringLiteral
+        BooleanLiteral
         | DecimalLiteral
         | DoubleLiteral
         | FloatLiteral
-        | BooleanLiteral
+        | IntegerLiteral
         | LowerCaseIdentifier
+        | StringLiteral
         | UpperCaseIdentifier
         | UpperCaseWithUnderscoreIdentifier
