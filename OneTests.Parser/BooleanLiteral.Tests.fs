@@ -28,6 +28,13 @@ let ``booleanParser accepts true`` () =
 let ``booleanParser accepts false`` () =
     booleanLiteralParser.IsMatch(new TextSpan("false")) |> should be True
 
+let ``booleanLiteralRecognizer accepts true`` () =
+    booleanLiteralRecognizer.IsMatch(new TextSpan("true")) |> should be True
+
+[<Fact>]
+let ``booleanLiteralRecognizer accepts false`` () =
+    booleanLiteralRecognizer.IsMatch(new TextSpan("false")) |> should be True
+
 [<Theory>]
 [<MemberData("booleanLiterals")>]
 let ``booleanParser yields expected results`` (item : string) =
@@ -35,5 +42,5 @@ let ``booleanParser yields expected results`` (item : string) =
 
 [<Theory>]
 [<MemberData("notBooleanLiterals")>]
-let ``booleanParser rejects invalid tokens`` (item : string) =
-    booleanLiteralParser.IsMatch(new TextSpan(item)) |> should be False
+let ``booleanLiteralRecognizer rejects invalid tokens`` (item : string) =
+    booleanLiteralRecognizer.IsMatch(new TextSpan(item)) |> should be False
