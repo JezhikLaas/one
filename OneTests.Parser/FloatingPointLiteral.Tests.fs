@@ -49,6 +49,11 @@ let ``fractionalPartParser accepts any digits not only zeros`` (item : string) =
     fractionalPartParser.IsMatch(new TextSpan(item)) |> should be True
 
 [<Theory>]
+[<MemberData("validFractionalParts")>]
+let ``fractionalPartRecognizer accepts any digits not only zeros`` (item : string) =
+    fractionalPartRecognizer.IsMatch(new TextSpan(item)) |> should be True
+
+[<Theory>]
 [<MemberData("validDecimalLiterals")>]
 let ``decimalParser produces expected results`` (item : string) =
     decimalLiteralParser.Parse (item) |> should equal (item.Replace("_", ""))
@@ -63,8 +68,16 @@ let ``floatTagIsCaseSensitive`` () =
     floatLiteralParser.IsMatch(new TextSpan("1.0F")) |> should be False
 
 [<Fact>]
+let ``floatLiteralRecognizer`` () =
+    floatLiteralRecognizer.IsMatch(new TextSpan("1.0F")) |> should be False
+
+[<Fact>]
 let ``doubleTagIsCaseSensitive`` () =
     doubleLiteralParser.IsMatch(new TextSpan("1.0D")) |> should be False
+
+[<Fact>]
+let ``doubleLiteralRecognizer`` () =
+    doubleLiteralRecognizer.IsMatch(new TextSpan("1.0D")) |> should be False
 
 [<Theory>]
 [<MemberData("validDoubleLiterals")>]
