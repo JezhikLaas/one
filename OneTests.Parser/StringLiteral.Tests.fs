@@ -52,9 +52,19 @@ let ``esacapeSequenceParser rejects invalid escape sequences`` (item : string) =
     esacapeSequenceParser.IsMatch(new TextSpan(item)) |> should be False
 
 [<Theory>]
+[<MemberData("invalidEscapeSequenceLiterals")>]
+let ``esacapeSequenceRecognizer rejects invalid escape sequences`` (item : string) =
+    esacapeSequenceRecognizer.IsMatch(new TextSpan(item)) |> should be False
+
+[<Theory>]
 [<MemberData("invalidStringLiterals")>]
 let ``stringLiteralParser rejects invalid strings`` (item : string) =
     stringLiteralParser.IsMatch(new TextSpan(item)) |> should be False
+
+[<Theory>]
+[<MemberData("invalidStringLiterals")>]
+let ``stringLiteralRecognizer rejects invalid strings`` (item : string) =
+    stringLiteralRecognizer.IsMatch(new TextSpan(item)) |> should be False
 
 [<Theory>]
 [<MemberData("stringLiterals")>]
