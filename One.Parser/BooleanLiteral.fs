@@ -1,31 +1,23 @@
 module One.Parser.BooleanLiteral
 
     open Superpower
+    open Superpower.Model
     open Superpower.Parsers
     
     let falseParser =
-        Character
-            .EqualTo('f')
-            .Then(fun f -> Character.EqualTo('a')
-                            .Then(fun a -> Character.EqualTo('l')
-                                            .Then(fun l -> Character.EqualTo('s')
-                                                            .Then(fun s -> Character.EqualTo('e')
-                                                            )
-                                             )
-                            )
-            )
-            .Select(fun _ -> "false")    
+        Span.EqualTo("false").Value("false")    
+    
+    let falseRecognizer =
+        Span.EqualTo("false").Value(Unit.Value)
     
     let trueParser =
-        Character
-            .EqualTo('t')
-            .Then(fun f -> Character.EqualTo('r')
-                            .Then(fun a -> Character.EqualTo('u')
-                                            .Then(fun l -> Character.EqualTo('e')
-                                             )
-                            )
-            )
-            .Select(fun _ -> "true")
+        Span.EqualTo("true").Value("true")
+    
+    let trueRecognizer =
+        Span.EqualTo("true").Value(Unit.Value)
     
     let booleanLiteralParser =
-        falseParser.Try().Or(trueParser)
+        falseParser.Try().Or(trueParser)    
+
+    let booleanLiteralRecognizer =
+        falseRecognizer.Try().Or(trueRecognizer)

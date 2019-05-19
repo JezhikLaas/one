@@ -14,7 +14,7 @@ module One.Parser.Identifier
             .Then(fun head -> Character.LetterOrDigit.Many()
                                 .Select(fun tail -> head.ToString() + new string(tail)))    
 
-    let upperCaseIdentifierWithUnderscoreParser =
+    let upperCaseWithUnderscoreIdentifierParser =
         Character.Upper
             .Then(fun head -> Character.Lower.Try().Or(Character.Digit).Select(fun character -> character.ToString())
                                   .Try()

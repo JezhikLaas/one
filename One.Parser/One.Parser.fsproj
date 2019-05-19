@@ -5,11 +5,13 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="OneToken.fs" />
         <Compile Include="BooleanLiteral.fs" />
         <Compile Include="Identifier.fs" />
         <Compile Include="IntegerLiteral.fs" />
         <Compile Include="FloatingPointLiteral.fs" />
         <Compile Include="StringLiteral.fs" />
+        <Compile Include="OneTokenizer.fs" />
     </ItemGroup>
 
     <ItemGroup>

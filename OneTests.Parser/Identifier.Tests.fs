@@ -83,14 +83,14 @@ let ``upperCaseIdentifierParser rejects invalid identifiers``(item : string) =
 [<Theory>]
 [<MemberData("validUpperCaseIdentifierWithUnderscoreIdentifiers")>]
 let ``upperCaseIdentifierWithUnderscoreParser accepts identifiers starting with a lowercase letter``(item : string) =
-    upperCaseIdentifierWithUnderscoreParser.IsMatch(new TextSpan(item)) |> should be True
+    upperCaseWithUnderscoreIdentifierParser.IsMatch(new TextSpan(item)) |> should be True
 
 [<Theory>]
 [<MemberData("validUpperCaseIdentifierWithUnderscoreIdentifiers")>]
 let ``upperCaseIdentifierWithUnderscoreParser yields input as result``(item : string) =
-    upperCaseIdentifierWithUnderscoreParser.Parse(item) |> should equal item
+    upperCaseWithUnderscoreIdentifierParser.Parse(item) |> should equal item
 
 [<Theory>]
 [<MemberData("invalidUpperCaseIdentifierWithUnderscoreIdentifiers")>]
 let ``upperCaseIdentifierWithUnderscoreParser rejects invalid identifiers``(item : string) =
-    upperCaseIdentifierWithUnderscoreParser.IsMatch(new TextSpan(item)) |> should be False
+    upperCaseWithUnderscoreIdentifierParser.IsMatch(new TextSpan(item)) |> should be False
