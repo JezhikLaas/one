@@ -5,13 +5,15 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="OneNode.fs" />
+        <Compile Include="Parsers\BooleanLiteral.fs" />
+        <Compile Include="Parsers\Identifier.fs" />
+        <Compile Include="Parsers\IntegerLiteral.fs" />
+        <Compile Include="Parsers\FloatingPointLiteral.fs" />
+        <Compile Include="Parsers\StringLiteral.fs" />
         <Compile Include="OneToken.fs" />
-        <Compile Include="BooleanLiteral.fs" />
-        <Compile Include="Identifier.fs" />
-        <Compile Include="IntegerLiteral.fs" />
-        <Compile Include="FloatingPointLiteral.fs" />
-        <Compile Include="StringLiteral.fs" />
         <Compile Include="OneTokenizer.fs" />
+        <Compile Include="TokenListParsers\ClassHeader.fs" />
     </ItemGroup>
 
     <ItemGroup>
