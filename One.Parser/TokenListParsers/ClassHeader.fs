@@ -8,9 +8,7 @@ module One.Parser.TokenListParsers
         Token
             .EqualTo(OneToken.UpperCaseIdentifier)
             .Apply(Identifier.upperCaseIdentifierParser)
-            //.Then(fun name -> Token.EqualTo(OneToken.UpperCaseIdentifier)
-             //                      .Apply(Identifier.upperCaseIdentifierParser))
-            .ManyDelimitedBy(Token.EqualTo(OneToken.Comma))
+            .AtLeastOnceDelimitedBy(Token.EqualTo(OneToken.Comma))
             .Select(fun items -> items |> Array.toList)
     
     let classHeader =
