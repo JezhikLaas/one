@@ -21,29 +21,32 @@ namespace One.Parser
         | [<Token(Example = "feature")>] Feature                                              =  16
         | FloatLiteral                                                                        =  17
         | [<Token(Example = "implies")>] Implies                                              =  18
-        | IntegerLiteral                                                                      =  19
-        | [<Token(Example = "inspect")>] Inspect                                              =  20
-        | [<Token(Example = "invariant")>] Invariant                                          =  21
-        | [<Token(Example = ">")>] Larger                                                     =  22
-        | [<Token(Example = ">=")>] LargerOrEqual                                             =  23
-        | [<Token(Example = "{")>] LeftBracket                                                =  24
-        | [<Token(Example = "(")>] LeftParenthesis                                            =  25
-        | [<Token(Example = "[")>] LeftSquareBracket                                          =  26
-        | [<Token(Example = "identifier")>] LowerCaseIdentifier                               =  27
-        | [<Token(Example = "not")>] Not                                                      =  28
-        | [<Token(Example = "<>")>] NotEqual                                                  =  29
-        | [<Token(Example = "or")>] Or                                                        =  30
-        | [<Token(Example = "|")>] Pipe                                                       =  31
-        | [<Token(Example = ".")>] Point                                                      =  32
-        | [<Token(Example = "require")>] Require                                              =  33
-        | [<Token(Example = "}")>] RightBracket                                               =  34
-        | [<Token(Example = ")")>] RightParenthesis                                           =  35
-        | [<Token(Example = "]")>] RightSquareBracket                                         =  36
-        | [<Token(Example = "<")>] Smaller                                                    =  37
-        | [<Token(Example = "<=")>] SmallerOrEqual                                            =  38
-        | StringLiteral                                                                       =  39
-        | [<Token(Example = "Identifier")>] UpperCaseIdentifier                               =  40
-        | [<Token(Example = "Identifier_With_Underscore")>] UpperCaseWithUnderscoreIdentifier =  41
-        | [<Token(Example = "watch")>] Watch                                                  =  42
-        | [<Token(Example = "when")>] When                                                    =  43
-        | [<Token(Example = "xor")>] Xor                                                      =  44
+        | [<Token(Example = "inherit")>] Inherit                                              =  19
+        | IntegerLiteral                                                                      =  20
+        | [<Token(Example = "inspect")>] Inspect                                              =  21
+        | [<Token(Example = "invariant")>] Invariant                                          =  22
+        | [<Token(Example = ">")>] Larger                                                     =  23
+        | [<Token(Example = ">=")>] LargerOrEqual                                             =  24
+        | [<Token(Example = "{")>] LeftBracket                                                =  25
+        | [<Token(Example = "(")>] LeftParenthesis                                            =  26
+        | [<Token(Example = "[")>] LeftSquareBracket                                          =  27
+        | LineFeed                                                                            =  28
+        | [<Token(Example = "identifier")>] LowerCaseIdentifier                               =  29
+        | [<Token(Example = "identifier_with_underscore")>] LowerCaseWithUnderscoreIdentifier =  30
+        | [<Token(Example = "not")>] Not                                                      =  31
+        | [<Token(Example = "<>")>] NotEqual                                                  =  32
+        | [<Token(Example = "or")>] Or                                                        =  33
+        | [<Token(Example = "|")>] Pipe                                                       =  34
+        | [<Token(Example = ".")>] Point                                                      =  35
+        | [<Token(Example = "require")>] Require                                              =  36
+        | [<Token(Example = "}")>] RightBracket                                               =  37
+        | [<Token(Example = ")")>] RightParenthesis                                           =  38
+        | [<Token(Example = "]")>] RightSquareBracket                                         =  39
+        | [<Token(Example = "<")>] Smaller                                                    =  40
+        | [<Token(Example = "<=")>] SmallerOrEqual                                            =  41
+        | StringLiteral                                                                       =  42
+        | [<Token(Example = "Identifier")>] UpperCaseIdentifier                               =  43
+        | [<Token(Example = "Identifier_With_Underscore")>] UpperCaseWithUnderscoreIdentifier =  44
+        | [<Token(Example = "watch")>] Watch                                                  =  45
+        | [<Token(Example = "when")>] When                                                    =  46
+        | [<Token(Example = "xor")>] Xor                                                      =  47

@@ -23,6 +23,7 @@ module One.Parser.OneTokenizer
             .Match(Span.EqualTo("end"), OneToken.End)
             .Match(Span.EqualTo("ensure"), OneToken.Ensure)
             .Match(Span.EqualTo("feature"), OneToken.Feature)
+            .Match(Span.EqualTo("inherit"), OneToken.Inherit)
             .Match(Span.EqualTo("inspect"), OneToken.Inspect)
             .Match(Span.EqualTo("invariant"), OneToken.Invariant)
             .Match(Span.EqualTo("not"), OneToken.Not)
@@ -37,10 +38,11 @@ module One.Parser.OneTokenizer
             .Match(floatLiteralRecognizer, OneToken.FloatLiteral)
             .Match(integerLiteralRecognizer, OneToken.IntegerLiteral)
             .Match(lowerCaseIdentifierRecognizer, OneToken.LowerCaseIdentifier)
+            .Match(lowerCaseWithUnderscoreIdentifierRecognizer, OneToken.LowerCaseWithUnderscoreIdentifier)
             .Match(stringLiteralRecognizer, OneToken.StringLiteral)
             .Match(upperCaseIdentifierRecognizer, OneToken.UpperCaseIdentifier)
             .Match(upperCaseWithUnderscoreIdentifierRecognizer, OneToken.UpperCaseWithUnderscoreIdentifier)
-            // operators
+            // operators, special chars
             .Match(Span.EqualTo(":="), OneToken.Assign)
             .Match(Character.EqualTo(':'), OneToken.Colon)
             .Match(Character.EqualTo('.'), OneToken.Point)
@@ -50,4 +52,5 @@ module One.Parser.OneTokenizer
             .Match(Character.EqualTo('('), OneToken.LeftParenthesis)
             .Match(Character.EqualTo('}'), OneToken.RightBracket)
             .Match(Character.EqualTo(')'), OneToken.RightParenthesis)
+            .Match(Character.EqualTo('\n'), OneToken.LineFeed)
             .Build()
