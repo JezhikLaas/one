@@ -26,4 +26,10 @@ let ``taggedExpressionList recognizes tagged clauses``() =
     let parsed = taggedExpressionList.TryParse (tokens.Value)
     parsed.HasValue |> should be True
     parsed.Value |> should equal [("valid_value", "true")]
+
+[<Fact>]
+let ``invariant recognizes invariant clause with literal expression``() =
+    let tokens = tokenizer.TryTokenize ("invariant\nvalid_value: true")
+    let parsed = invariant.TryParse (tokens.Value)
+    parsed.HasValue |> should be True
     

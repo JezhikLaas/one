@@ -12,7 +12,7 @@ module One.Parser.OneTokenizer
 
     let tokenizer =
         builder
-            .Ignore(Span.WhiteSpace)
+            .Ignore(Span.WithAll(fun character -> [' '; '\t'] |> List.contains character))
             // keywords
             .Match(Span.EqualTo("and"), OneToken.And)
             .Match(Span.EqualTo("class"), OneToken.Class)
@@ -43,6 +43,7 @@ module One.Parser.OneTokenizer
             .Match(upperCaseIdentifierRecognizer, OneToken.UpperCaseIdentifier)
             .Match(upperCaseWithUnderscoreIdentifierRecognizer, OneToken.UpperCaseWithUnderscoreIdentifier)
             // operators, special chars
+            .Match(Character.EqualTo('\n'), OneToken.LineFeed)
             .Match(Span.EqualTo(":="), OneToken.Assign)
             .Match(Character.EqualTo(':'), OneToken.Colon)
             .Match(Character.EqualTo('.'), OneToken.Point)
@@ -52,6 +53,5 @@ module One.Parser.OneTokenizer
             .Match(Character.EqualTo('('), OneToken.LeftParenthesis)
             .Match(Character.EqualTo('}'), OneToken.RightBracket)
             .Match(Character.EqualTo(')'), OneToken.RightParenthesis)
-            .Match(Character.EqualTo('\n'), OneToken.LineFeed)
             .Match(Character.EqualTo(';'), OneToken.Semicolon)
             .Build()
