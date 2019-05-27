@@ -42,11 +42,12 @@ namespace One.Parser
         | [<Token(Example = "}")>] RightBracket                                               =  37
         | [<Token(Example = ")")>] RightParenthesis                                           =  38
         | [<Token(Example = "]")>] RightSquareBracket                                         =  39
-        | [<Token(Example = "<")>] Smaller                                                    =  40
-        | [<Token(Example = "<=")>] SmallerOrEqual                                            =  41
-        | StringLiteral                                                                       =  42
-        | [<Token(Example = "Identifier")>] UpperCaseIdentifier                               =  43
-        | [<Token(Example = "Identifier_With_Underscore")>] UpperCaseWithUnderscoreIdentifier =  44
-        | [<Token(Example = "watch")>] Watch                                                  =  45
-        | [<Token(Example = "when")>] When                                                    =  46
-        | [<Token(Example = "xor")>] Xor                                                      =  47
+        | [<Token(Example = ";")>] Semicolon                                                  =  41
+        | [<Token(Example = "<")>] Smaller                                                    =  42
+        | [<Token(Example = "<=")>] SmallerOrEqual                                            =  43
+        | StringLiteral                                                                       =  44
+        | [<Token(Example = "Identifier")>] UpperCaseIdentifier                               =  45
+        | [<Token(Example = "Identifier_With_Underscore")>] UpperCaseWithUnderscoreIdentifier =  46
+        | [<Token(Example = "watch")>] Watch                                                  =  47
+        | [<Token(Example = "when")>] When                                                    =  48
+        | [<Token(Example = "xor")>] Xor                                                      =  49

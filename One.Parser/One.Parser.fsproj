@@ -14,6 +14,7 @@
         <Compile Include="OneToken.fs" />
         <Compile Include="OneTokenizer.fs" />
         <Compile Include="TokenListParsers\ClassHeader.fs" />
+        <Compile Include="TokenListParsers\Invariant.fs" />
     </ItemGroup>
 
     <ItemGroup>

@@ -1,4 +1,4 @@
-module One.Parser.TokenListParsers
+module One.Parser.TokenListParsers.ClassHeader
 
     open One.Parser
     open Superpower
@@ -8,7 +8,7 @@ module One.Parser.TokenListParsers
         Token
             .EqualTo(OneToken.UpperCaseIdentifier)
             .Apply(Identifier.upperCaseIdentifierParser)
-            .AtLeastOnceDelimitedBy(Token.EqualTo(OneToken.Comma))
+            .AtLeastOnceDelimitedBy(Token.EqualTo(OneToken.Semicolon).Or(Token.EqualTo(OneToken.LineFeed)))
             .Select(fun items -> items |> Array.toList)
     
     let classHeader =
@@ -18,8 +18,8 @@ module One.Parser.TokenListParsers
                                .EqualTo(OneToken.UpperCaseIdentifier)
                                .Apply(Identifier.upperCaseIdentifierParser)
                                .Then(fun name -> Token
-                                                     .EqualTo(OneToken.Colon)
+                                                     .EqualTo(OneToken.Inherit)
                                                      .Then(fun _ -> ancestorList
-                                                                        .Select(fun ancestor -> ClassHeader (name, ancestor)))))
+                                                                        .Select(fun ancestors -> ClassHeader (name, ancestors)))))
 
     

@@ -13,6 +13,7 @@
         <Compile Include="FloatingPointLiteral.Tests.fs" />
         <Compile Include="Identifier.Tests.fs" />
         <Compile Include="IntegerLiteral.Tests.fs" />
+        <Compile Include="Invariant.Tests.fs" />
         <Compile Include="StringLiteral.Tests.fs" />
         <Compile Include="Tokenizer.Tests.fs" />
         <Compile Include="Program.fs" />

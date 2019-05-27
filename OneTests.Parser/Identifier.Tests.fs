@@ -50,6 +50,21 @@ let invalidUpperCaseIdentifierWithUnderscoreIdentifiers =
         yield [|"AA_123" :> Object|]
     }
 
+let validLowerCaseIdentifierWithUnderscoreIdentifiers =
+    seq {
+        yield [|"lower_case_identifier_parser" :> Object|]
+        yield [|"boolean_literal_parser" :> Object|]
+        yield [|"a_123" :> Object|]
+    }
+
+let invalidLowerCaseIdentifierWithUnderscoreIdentifiers =
+    seq {
+        yield [|"Lower_CaseI_dentifierP_arser" :> Object|]
+        yield [|"1boolean_literal_parser" :> Object|]
+        yield [|"BooleanLiteralParser" :> Object|]
+        yield [|"A_123" :> Object|]
+    }
+    
 [<Theory>]
 [<MemberData("validLowerCaseIdentifiers")>]
 let ``lowerCaseIdentifierParser accepts identifiers starting with a lowercase letter``(item : string) =
@@ -82,7 +97,7 @@ let ``upperCaseIdentifierParser rejects invalid identifiers``(item : string) =
 
 [<Theory>]
 [<MemberData("validUpperCaseIdentifierWithUnderscoreIdentifiers")>]
-let ``upperCaseIdentifierWithUnderscoreParser accepts identifiers starting with a lowercase letter``(item : string) =
+let ``upperCaseIdentifierWithUnderscoreParser accepts identifiers starting with a uppercase letter``(item : string) =
     upperCaseWithUnderscoreIdentifierParser.IsMatch(new TextSpan(item)) |> should be True
 
 [<Theory>]
@@ -94,3 +109,18 @@ let ``upperCaseIdentifierWithUnderscoreParser yields input as result``(item : st
 [<MemberData("invalidUpperCaseIdentifierWithUnderscoreIdentifiers")>]
 let ``upperCaseIdentifierWithUnderscoreParser rejects invalid identifiers``(item : string) =
     upperCaseWithUnderscoreIdentifierParser.IsMatch(new TextSpan(item)) |> should be False
+
+[<Theory>]
+[<MemberData("validLowerCaseIdentifierWithUnderscoreIdentifiers")>]
+let ``lowerCaseIdentifierWithUnderscoreParser accepts identifiers starting with a lowercase letter``(item : string) =
+    lowerCaseWithUnderscoreIdentifierParser.IsMatch(new TextSpan(item)) |> should be True
+
+[<Theory>]
+[<MemberData("validLowerCaseIdentifierWithUnderscoreIdentifiers")>]
+let ``lowerCaseIdentifierWithUnderscoreParser yields input as result``(item : string) =
+    lowerCaseWithUnderscoreIdentifierParser.Parse(item) |> should equal item
+
+[<Theory>]
+[<MemberData("invalidLowerCaseIdentifierWithUnderscoreIdentifiers")>]
+let ``lowerCaseIdentifierWithUnderscoreParser rejects invalid identifiers``(item : string) =
+    lowerCaseWithUnderscoreIdentifierParser.IsMatch(new TextSpan(item)) |> should be False

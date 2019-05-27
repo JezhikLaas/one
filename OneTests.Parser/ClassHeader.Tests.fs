@@ -4,11 +4,25 @@ open FsUnit
 open Xunit
 open Superpower
 open One.Parser.OneTokenizer
-open One.Parser.TokenListParsers
+open One.Parser.TokenListParsers.ClassHeader
 
 [<Fact>]
-let ``ancestorList recognizes comma separated list``() =
+let ``ancestorList recognizes semicolon separated list``() =
+    let tokens = tokenizer.TryTokenize ("IAtest; IBtest")
+    let parsed = ancestorList.TryParse (tokens.Value)
+    parsed.HasValue |> should be True
+    parsed.Value |> should equal ["IAtest"; "IBtest"]
+
+[<Fact>]
+let ``ancestorList rejects comma separated list``() =
     let tokens = tokenizer.TryTokenize ("IAtest, IBtest")
+    let parsed = ancestorList.TryParse (tokens.Value)
+    parsed.HasValue |> should be True
+    parsed.Value |> should equal ["IAtest"]
+
+[<Fact>]
+let ``ancestorList recognizes line feed separated list``() =
+    let tokens = tokenizer.TryTokenize ("IAtest \n IBtest")
     let parsed = ancestorList.TryParse (tokens.Value)
     parsed.HasValue |> should be True
 
@@ -20,7 +34,13 @@ let ``ancestorList recognizes single ancestor``() =
 
 [<Fact>]
 let ``classHeader recognizes class with one ancestor``() =
-    let tokens = tokenizer.TryTokenize ("class Test : ITest")
+    let tokens = tokenizer.TryTokenize ("class Test inherit ITest")
+    let parsed = classHeader.TryParse (tokens.Value)
+    parsed.HasValue |> should be True
+
+[<Fact>]
+let ``classHeader recognizes class with multiple ancestors``() =
+    let tokens = tokenizer.TryTokenize ("class Test inherit ITest, ITestTwo")
     let parsed = classHeader.TryParse (tokens.Value)
     parsed.HasValue |> should be True
 
