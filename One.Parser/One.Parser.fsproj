@@ -15,10 +15,11 @@
         <Compile Include="OneTokenizer.fs" />
         <Compile Include="TokenListParsers\ClassHeader.fs" />
         <Compile Include="TokenListParsers\Invariant.fs" />
+        <Compile Include="TokenListParsers\Expression.fs" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Superpower" Version="2.2.0" />
+      <PackageReference Include="Superpower" Version="2.3.0" />
     </ItemGroup>
 
 </Project>

@@ -124,3 +124,27 @@ let ``lowerCaseIdentifierWithUnderscoreParser yields input as result``(item : st
 [<MemberData("invalidLowerCaseIdentifierWithUnderscoreIdentifiers")>]
 let ``lowerCaseIdentifierWithUnderscoreParser rejects invalid identifiers``(item : string) =
     lowerCaseWithUnderscoreIdentifierParser.IsMatch(new TextSpan(item)) |> should be False
+
+[<Theory>]
+[<MemberData("validLowerCaseIdentifierWithUnderscoreIdentifiers")>]
+let ``identifierParser accepts identifiers starting with a lowercase letter containing underscores``(item : string) =
+    identifierParser.IsMatch(new TextSpan(item)) |> should be True
+    
+[<Theory>]
+[<MemberData("validLowerCaseIdentifiers")>]
+let ``identifierParser accepts identifiers starting with a lowercase letter``(item : string) =
+    identifierParser.IsMatch(new TextSpan(item)) |> should be True
+    
+[<Fact>]
+let ``identifierParser accepts aaB``() =
+    identifierParser.IsMatch(new TextSpan("aaB")) |> should be True
+    
+[<Theory>]
+[<MemberData("validUpperCaseIdentifiers")>]
+let ``identifierParser accepts identifiers starting with a uppercase letter``(item : string) =
+    identifierParser.IsMatch(new TextSpan(item)) |> should be True
+
+[<Theory>]
+[<MemberData("validUpperCaseIdentifierWithUnderscoreIdentifiers")>]
+let ``identifierParser accepts identifiers starting with a uppercase letter containing underscores``(item : string) =
+    identifierParser.IsMatch(new TextSpan(item)) |> should be True
