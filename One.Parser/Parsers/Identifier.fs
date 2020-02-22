@@ -25,7 +25,6 @@ module One.Parser.Identifier
                                   .LetterOrDigit
                                   .Many()
                                   .Select(fun tail -> head.ToString() + new string(tail)))    
-
     
     let upperCaseIdentifierRecognizer =
         Character.Upper.Value(Unit.Value)
